@@ -7,6 +7,7 @@ nombres[0] = "A"
 baraja = []
 manoJugador = []
 manoCrupier = []
+noPlantado = True
 
 def crearBaraja():
     for i in range(4):
@@ -51,10 +52,10 @@ def sumarCartas(mano):
 def empezarJuego(manoJugador, manoCrupier, baraja):
     crearBaraja()
     shuffle(baraja)
-    repartir(baraja, 2, manoJugador)
-    repartir(baraja, 2, manoCrupier)
-    mostrarCartas()
-    sumarCartas(manoJugador)
-    sumarCartas(manoCrupier)
+    while noPlantado or sumarCartas(manoJugador) <= 21:
+        repartir(baraja, 2, manoJugador)
+        repartir(baraja, 2, manoCrupier)
+        mostrarCartas()
+        sumarCartas(manoJugador)
 
 empezarJuego(manoJugador, manoCrupier, baraja)
