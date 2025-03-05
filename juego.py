@@ -37,8 +37,9 @@ def mostrarCartas():
     print(f"Cartas del jugador:")
     for i in range(len(manoJugador)):
         print(Carta.getCarta(manoJugador[i]))
+    print(f"Suma de las cartas del jugador: {sumarCartas(manoJugador)}\n")
     print(f"Primera carta del crupier:")
-    print(Carta.)
+    print(Carta.getCarta(manoCrupier[0]))
 
 
 def sumarCartas(mano):
@@ -48,25 +49,12 @@ def sumarCartas(mano):
     return suma
 
 def empezarJuego(manoJugador, manoCrupier, baraja):
-    suma = 16
-    print("Cartas del jugador:")
-    for i in range (len(manoJugador)):
-         print(f"{manoJugador[i]}")
-    print(f"\nCarta inicial del crupier:\n{manoCrupier[0]}")
+    crearBaraja()
+    shuffle(baraja)
+    repartir(baraja, 2, manoJugador)
+    repartir(baraja, 2, manoCrupier)
+    mostrarCartas()
+    sumarCartas(manoJugador)
+    sumarCartas(manoCrupier)
 
-    if suma >= 16:
-        suma = 0
-        respuesta = input("Quieres más? S/N")
-        if respuesta == "S":
-            manoJugador.append(baraja.pop())
-            for i in range(len(manoJugador)):
-                suma += Carta.getValor(manoJugador[i])
-            print("Cartas del jugador:")
-            for j in range(len(manoJugador)):
-                print(f"{manoJugador[j]}")
-            print(f"Tienes suma: {suma.__str__()}")
-
-
-shuffle(baraja)
-repartir(baraja)
 empezarJuego(manoJugador, manoCrupier, baraja)
