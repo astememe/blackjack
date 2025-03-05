@@ -37,7 +37,8 @@ def mostrarCartas():
     print(f"Cartas del jugador:")
     for i in range(len(manoJugador)):
         print(Carta.getCarta(manoJugador[i]))
-    print(f"Cartas del crupier:")
+    print(f"Primera carta del crupier:")
+    print(Carta.)
 
 
 def sumarCartas(mano):

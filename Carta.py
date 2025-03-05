@@ -3,7 +3,7 @@ class Carta:
         self.palo = palo
         self.valor = valor
         self.nombre = nombre
-    def __str__(self):
+    def getCarta(self):
         return f"{self.nombre} de {self.palo}"
     def getValor(self):
         return self.valor
